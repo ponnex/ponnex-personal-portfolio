@@ -1,0 +1,25 @@
+// theme color
+$bg--light: $gallery;
+$bg--dark: $cod-gray;
+$bg--sepia: $parchment;
+
+$bg--card--light: lighten($bg--light, 1%);
+$bg--card--dark: desaturate(lighten($bg--dark, 5%), 5%);
+
+$text--light: $mine-shaft--3;
+$text-secondary--light: $dove-gray;
+
+$text--dark: $white;
+$text-secondary--dark: $silver;
+
+$hover--light: transparentize($orange-yellow-crayola, 0.9);
+$hover--dark: transparentize(#fff, 0.9);
+
+$highlight--light: transparentize($cod-gray, 0.7);
+$highlight--dark: transparentize($orange-yellow-crayola, 0.1);
+
+$icon--light: $dove-gray;
+$icon--dark: $dove-gray;
+
+$icon-accent--light: $cod-gray;
+$icon-accent--dark: $orange-yellow-crayola;

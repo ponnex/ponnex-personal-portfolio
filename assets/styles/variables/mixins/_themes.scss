@@ -1,0 +1,66 @@
+//shortcuts
+$bg: 'bg';
+$text: 'text';
+$text-secondary: 'text-secondary';
+$hover: 'hover';
+$card-bg: 'card-bg';
+$highlight: 'highlight';
+$icon: 'icon';
+$icon-accent: 'icon-accent';
+
+//themes
+$themes: (
+  dark: (
+    bg: $bg--dark,
+    text: $text--dark,
+    hover: $hover--dark,
+    card-bg: $bg--card--dark,
+    text-secondary: $text-secondary--dark,
+    highlight: $highlight--dark,
+    icon: $icon--dark,
+    icon-accent: $icon-accent--dark,
+  ),
+  light: (
+    bg: $bg--light,
+    text: $text--light,
+    hover: $hover--light,
+    card-bg: $bg--card--light,
+    text-secondary: $text-secondary--light,
+    highlight: $highlight--light,
+    icon: $icon--light,
+    icon-accent: $icon-accent--light,
+  ),
+  sepia: (
+    bg: $bg--sepia,
+    text: $text--light,
+    hover: $hover--light,
+    card-bg: $bg--card--light,
+    text-secondary: $text-secondary--light,
+    highlight: $highlight--dark,
+    icon: $icon--light,
+    icon-accent: $icon-accent--light,
+  )
+);
+
+@mixin themed() {
+  @each $theme, $map in $themes {
+    html.#{$theme}-mode & {
+      $theme-map: () !global;
+      @each $key, $submap in $map {
+        $value: map-get(map-get($themes, $theme), $key);
+        $theme-map: map-merge(
+          $theme-map,
+          (
+            $key: $value
+          )
+        ) !global;
+      }
+      @content;
+      $theme-map: null !global;
+    }
+  }
+}
+
+@function asset($key) {
+  @return map-get($theme-map, $key);
+}

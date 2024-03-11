@@ -1,0 +1,77 @@
+h1,
+h2,
+h3,
+h4 {
+  margin: 0;
+  padding: 0;
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+  font-weight: 300;
+}
+
+button {
+  border: 0;
+  cursor: pointer;
+  background: none;
+}
+
+textarea {
+  border: 0;
+}
+
+select {
+  border: 0;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+p {
+  white-space: pre-line;
+  font-size: $font-size--base;
+  margin: 0 0 1.5em;
+
+  @include themed() {
+    color: asset($text);
+  }
+}
+
+a {
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+input {
+  font-weight: 400;
+  border: 0;
+  outline: 0;
+  border: 0;
+  @include themed() {
+    color: asset($text);
+  }
+}
+
+svg {
+  @include themed() {
+    color: asset($icon);
+  }
+}
+
+::selection {
+  @include themed() {
+    background-color: asset($highlight);
+    color: asset($text);
+  }
+}
+
+@media (max-width: $screen-md-max) {
+  p {
+    font-size: $font-size--base--mobile;
+  }
+}
+
